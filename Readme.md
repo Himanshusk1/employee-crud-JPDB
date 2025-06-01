@@ -1,7 +1,5 @@
 # 🚀 Employee Navigation Form with JPDB & SweetAlert 🎉
 
-  <img src="https://img.shields.io/github/v/release/yourusername/yourrepo?style=for-the-badge&color=blueviolet" alt="GitHub release"/>
-  <img src="https://img.shields.io/github/license/yourusername/yourrepo?style=for-the-badge&color=green" alt="License"/>
   <img src="https://img.shields.io/badge/Made%20with-HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5 Badge"/>
   <img src="https://img.shields.io/badge/Made%20with-CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3 Badge"/>
   <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript Badge"/>
@@ -34,19 +32,6 @@ Enjoy instant feedback with elegant alerts and a smooth user experience!
 | Version | Date       | Highlights                                 |
 |---------|------------|--------------------------------------------|
 | 1.0     | 2025-06-01 | Initial launch with CRUD & SweetAlert UI   |
-
----
-
-## 🧭 Table of Contents
-
-- [Description](#-description)
-- [Benefits of Using JsonPowerDB](#-benefits-of-using-jsonpowerdb)
-- [Release History](#-release-history)
-- [Scope of Functionalities](#-scope-of-functionalities)
-- [Examples of Use](#-examples-of-use)
-- [Project Status](#-project-status)
-- [Sources](#-sources)
-- [Other Information](#-other-information)
 
 ---
 
