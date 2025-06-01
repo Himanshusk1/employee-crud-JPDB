@@ -1,12 +1,13 @@
 # 🚀 Employee Navigation Form with JPDB & SweetAlert 🎉
 
-![Project Logo](https://raw.githubusercontent.com/yourusername/yourrepo/main/assets/logo.png)
-
-![GitHub release](https://img.shields.io/github/v/release/yourusername/yourrepo?style=for-the-badge)
-![License](https://img.shields.io/github/license/yourusername/yourrepo?style=for-the-badge)
-![Made with Bootstrap](https://img.shields.io/badge/Made%20with-Bootstrap-563d7c?style=for-the-badge&logo=bootstrap)
-![Powered by JPDB](https://img.shields.io/badge/Backend-JsonPowerDB-ff69b4?style=for-the-badge&logo=postman)
-![SweetAlert2](https://img.shields.io/badge/Alerts-SweetAlert2-ff6f61?style=for-the-badge&logo=javascript)
+  <img src="https://img.shields.io/github/v/release/yourusername/yourrepo?style=for-the-badge&color=blueviolet" alt="GitHub release"/>
+  <img src="https://img.shields.io/github/license/yourusername/yourrepo?style=for-the-badge&color=green" alt="License"/>
+  <img src="https://img.shields.io/badge/Made%20with-HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5 Badge"/>
+  <img src="https://img.shields.io/badge/Made%20with-CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3 Badge"/>
+  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript Badge"/>
+  <img src="https://img.shields.io/badge/Framework-Bootstrap-563d7c?style=for-the-badge&logo=bootstrap&logoColor=white" alt="Bootstrap Badge"/>
+  <img src="https://img.shields.io/badge/Backend-JPDB-ff69b4?style=for-the-badge&logo=json&logoColor=white" alt="JPDB Badge"/>
+  <img src="https://img.shields.io/badge/Alerts-SweetAlert2-ff6f61?style=for-the-badge&logo=javascript&logoColor=white" alt="SweetAlert2 Badge"/>
 
 ---
 
@@ -61,7 +62,7 @@ Enjoy instant feedback with elegant alerts and a smooth user experience!
 
 ## 📸 Demo Preview
 
-![Demo GIF](https://raw.githubusercontent.com/yourusername/yourrepo/main/assets/demo.gif)
+![Demo GIF](./public/preview.png)
 
 ---
 
@@ -104,9 +105,6 @@ Learn more about creating excellent READMEs:
 ## 📬 Contact
 
 Himanshu Singh Kyariya  
-Email: your.email@example.com  
-GitHub: [yourusername](https://github.com/yourusername)
+Email: himanshusing8842@gmail.com 
+GitHub: https://github.com/Himanshusk1
 
----
-
-*Made with ❤️ and ☕*
