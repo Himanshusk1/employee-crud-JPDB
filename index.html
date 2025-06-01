@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Employee Navigation Form</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.12/dist/sweetalert2.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.12/dist/sweetalert2.all.min.js"></script>
+
+</head>
+<body>
+  <div class="container">
+    <div class="page-header text-center">
+      <h2>Employee Navigation Form</h2>
+    </div>
+
+    <form class="form-horizontal" id="employeeForm" method="post">
+      <div class="form-group">
+        <label class="control-label col-sm-2">Employee ID:</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="eid" placeholder="Enter employee ID" name="eid" onchange="getEmp()">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-sm-2">Employee Name:</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="ename" placeholder="Enter employee name" name="ename">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-sm-2">Basic Salary:</label>
+        <div class="col-sm-10">
+          <input type="number" class="form-control" id="bs" placeholder="Enter Basic Salary" name="bs">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-sm-2">HRA:</label>
+        <div class="col-sm-10">
+          <input type="number" class="form-control" id="hra" placeholder="Enter HRA" name="hra">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-sm-2">DA:</label>
+        <div class="col-sm-10">
+          <input type="number" class="form-control" id="da" placeholder="Enter DA" name="da">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-sm-2">Deduction:</label>
+        <div class="col-sm-10">
+          <input type="number" class="form-control" id="dd" placeholder="Enter Deduction" name="dd">
+        </div>
+      </div>
+
+      <div class="form-group text-center">
+        <button type="button" class="btn btn-success" id="new" onclick="newData()">New</button>
+        <button type="button" class="btn btn-primary" id="save" onclick="saveData()" disabled>Save</button>
+        <button type="button" class="btn btn-warning" id="edit" onclick="editData()">Edit</button>
+        <button type="button" class="btn btn-info" id="change" onclick="changeData()" disabled>Change</button>
+        <button type="button" class="btn btn-danger" id="reset" onclick="resetForm()">Reset</button>
+      </div>
+
+      <div class="form-group text-center">
+        <button type="button" class="btn btn-default" id="first" onclick="getFirst()">First</button>
+        <button type="button" class="btn btn-default" id="prev" onclick="getPrev()">Previous</button>
+        <button type="button" class="btn btn-default" id="next" onclick="getNext()">Next</button>
+        <button type="button" class="btn btn-default" id="last" onclick="getLast()">Last</button>
+      </div>
+    </form>
+  </div>
+
+ <script type="text/javascript" src="http://login2explore.com/jpdb/resources/js/0.0.4/jpdb-commons.js"></script>
+<script src="./public/main.js"></script>
+</body>
+</html>
