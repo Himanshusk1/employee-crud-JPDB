@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Shipment Management Form</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- SweetAlert2 -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <style>
+    body {
+      padding: 30px;
+      background-color: #f7f9fc;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2 class="mb-4">Shipment Management Form</h2>
+    <form id="shipmentForm" autocomplete="off">
+      <div class="mb-3">
+        <label for="shipmentNo" class="form-label">Shipment No. <span class="text-danger">*</span></label>
+        <input type="text" class="form-control" id="shipmentNo" placeholder="Enter Shipment No." required />
+      </div>
+      <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <textarea class="form-control" id="description" rows="2" placeholder="Enter Description"></textarea>
+      </div>
+      <div class="mb-3">
+        <label for="source" class="form-label">Source</label>
+        <input type="text" class="form-control" id="source" placeholder="Enter Source" />
+      </div>
+      <div class="mb-3">
+        <label for="destination" class="form-label">Destination</label>
+        <input type="text" class="form-control" id="destination" placeholder="Enter Destination" />
+      </div>
+      <div class="mb-3">
+        <label for="shippingDate" class="form-label">Shipping Date</label>
+        <input type="date" class="form-control" id="shippingDate" />
+      </div>
+      <div class="mb-3">
+        <label for="expectedDeliveryDate" class="form-label">Expected Delivery Date</label>
+        <input type="date" class="form-control" id="expectedDeliveryDate" />
+      </div>
+
+      <button type="button" id="saveBtn" class="btn btn-primary">Save</button>
+      <button type="button" id="resetBtn" class="btn btn-secondary">Reset</button>
+    </form>
+  </div>
+
+  <!-- JPDB Config & Script -->
+  <script>
+    const jpdbBaseUrl = "https://api.login2explore.com:5577";
+    const jpdbAppName = "DELIVERY-DB";
+    const jpdbRelationName = "SHIPMENT-TABLE";
+    const jpdbRelationNameEncoded = encodeURIComponent(jpdbRelationName);
+    const jpdbAPIKey = "90934604|-31949211920232748|90956789";  // Replace with your JPDB API key
+
+    // Utility functions to interact with JPDB
+    async function jpdbRequest(endpoint, payload) {
+      try {
+        let response = await fetch(`${jpdbBaseUrl}/api/irl/${jpdbAppName}/${jpdbRelationNameEncoded}`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": jpdbAPIKey,
+          },
+          body: JSON.stringify(payload),
+        });
+        return response.json();
+      } catch (error) {
+        Swal.fire("Error", "Failed to connect to JPDB server.", "error");
+        return null;
+      }
+    }
+
+    async function getRecordByShipmentNo(shipmentNo) {
+      const payload = {
+        "cmd": "GET_BY_KEY",
+        "key": shipmentNo,
+        "relation": jpdbRelationName
+      };
+      return await jpdbRequest("GET_BY_KEY", payload);
+    }
+
+    async function saveRecord(record) {
+      const payload = {
+        "cmd": "PUT",
+        "record": record,
+        "relation": jpdbRelationName
+      };
+      return await jpdbRequest("PUT", payload);
+    }
+
+    // Form elements
+    const shipmentNoInput = document.getElementById("shipmentNo");
+    const descriptionInput = document.getElementById("description");
+    const sourceInput = document.getElementById("source");
+    const destinationInput = document.getElementById("destination");
+    const shippingDateInput = document.getElementById("shippingDate");
+    const expectedDeliveryDateInput = document.getElementById("expectedDeliveryDate");
+
+    const saveBtn = document.getElementById("saveBtn");
+    const resetBtn = document.getElementById("resetBtn");
+
+    // Enable/Disable other fields
+    function toggleFields(enable) {
+      descriptionInput.disabled = !enable;
+      sourceInput.disabled = !enable;
+      destinationInput.disabled = !enable;
+      shippingDateInput.disabled = !enable;
+      expectedDeliveryDateInput.disabled = !enable;
+      saveBtn.disabled = !enable;
+    }
+
+    // Clear all form fields except Shipment No.
+    function clearFields() {
+      descriptionInput.value = "";
+      sourceInput.value = "";
+      destinationInput.value = "";
+      shippingDateInput.value = "";
+      expectedDeliveryDateInput.value = "";
+    }
+
+    // Reset entire form
+    function resetForm() {
+      shipmentNoInput.value = "";
+      clearFields();
+      toggleFields(false);
+    }
+
+    // On Shipment No. blur, check if record exists
+    shipmentNoInput.addEventListener("blur", async () => {
+      const shipmentNo = shipmentNoInput.value.trim();
+      if (shipmentNo === "") {
+        toggleFields(false);
+        clearFields();
+        return;
+      }
+      // Fetch from JPDB
+      const res = await getRecordByShipmentNo(shipmentNo);
+      if (res && res.status === 200 && res.data && res.data.length > 0) {
+        // Record exists, fill form and disable shipmentNo input to avoid PK change
+        const record = res.data[0];
+        descriptionInput.value = record.Description || "";
+        sourceInput.value = record.Source || "";
+        destinationInput.value = record.Destination || "";
+        shippingDateInput.value = record["Shipping-Date"] || "";
+        expectedDeliveryDateInput.value = record["Expected-Delivery-Date"] || "";
+
+        toggleFields(true);
+        shipmentNoInput.disabled = true;
+      } else {
+        // New record
+        clearFields();
+        toggleFields(true);
+      }
+    });
+
+    // Save button click handler
+    saveBtn.addEventListener("click", async () => {
+      const shipmentNo = shipmentNoInput.value.trim();
+      if (!shipmentNo) {
+        Swal.fire("Validation Error", "Shipment No. is required!", "warning");
+        shipmentNoInput.focus();
+        return;
+      }
+      // Create record object
+      const record = {
+        "Shipment-No.": shipmentNo,
+        "Description": descriptionInput.value.trim(),
+        "Source": sourceInput.value.trim(),
+        "Destination": destinationInput.value.trim(),
+        "Shipping-Date": shippingDateInput.value,
+        "Expected-Delivery-Date": expectedDeliveryDateInput.value,
+      };
+
+      const response = await saveRecord(record);
+      if (response && response.status === 200) {
+        Swal.fire("Success", "Shipment data saved successfully!", "success");
+        resetForm();
+        shipmentNoInput.focus();
+      } else {
+        Swal.fire("Error", "Failed to save shipment data.", "error");
+      }
+    });
+
+    // Reset button click handler
+    resetBtn.addEventListener("click", () => {
+      resetForm();
+      shipmentNoInput.disabled = false;
+      shipmentNoInput.focus();
+    });
+
+    // On load, disable fields except Shipment No.
+    window.onload = () => {
+      toggleFields(false);
+      shipmentNoInput.focus();
+    };
+  </script>
+</body>
+</html>
