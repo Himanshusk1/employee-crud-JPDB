@@ -1,11 +1,15 @@
 # 🚀 Employee Navigation Form with JPDB & SweetAlert 🎉
 
-  <img src="https://img.shields.io/badge/Made%20with-HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5 Badge"/>
-  <img src="https://img.shields.io/badge/Made%20with-CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3 Badge"/>
-  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript Badge"/>
-  <img src="https://img.shields.io/badge/Framework-Bootstrap-563d7c?style=for-the-badge&logo=bootstrap&logoColor=white" alt="Bootstrap Badge"/>
-  <img src="https://img.shields.io/badge/Backend-JPDB-ff69b4?style=for-the-badge&logo=json&logoColor=white" alt="JPDB Badge"/>
-  <img src="https://img.shields.io/badge/Alerts-SweetAlert2-ff6f61?style=for-the-badge&logo=javascript&logoColor=white" alt="SweetAlert2 Badge"/>
+  <p align="center">
+  <img src="https://img.shields.io/github/v/release/yourusername/yourrepo?style=for-the-badge&color=blueviolet" alt="GitHub release"/>
+  <img src="https://img.shields.io/github/license/yourusername/yourrepo?style=for-the-badge&color=green" alt="License"/>
+  <img src="https://img.shields.io/badge/Made%20with-HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Made%20with-CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white"/>
+  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black"/>
+  <img src="https://img.shields.io/badge/Framework-Bootstrap-563d7c?style=for-the-badge&logo=bootstrap&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Backend-JPDB-ff69b4?style=for-the-badge&logo=json&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Alerts-SweetAlert2-ff6f61?style=for-the-badge&logo=javascript&logoColor=white"/>
+</p>
 
 ---
 
